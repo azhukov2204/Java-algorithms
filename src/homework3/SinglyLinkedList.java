@@ -9,14 +9,21 @@ public class SinglyLinkedList<T> {
         firstElementLink = null;
     }
 
+    public boolean isEmpty()
+    {
+        return (firstElementLink == null);
+    }
+
     public void add(T object) {
         Link<T> link = new Link<>(object);
         link.setNext(firstElementLink);
         this.firstElementLink = link;
     }
 
-    public void deleteFirst() {
+    public T deleteFirst() {
+        Link<T> temp = firstElementLink;
         firstElementLink = firstElementLink.getNext();
+        return temp.getValue();
     }
 
     @Override
